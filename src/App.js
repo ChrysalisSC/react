@@ -5,7 +5,7 @@ import images from './images'
 import {v4 as uuidv4} from 'uuid';
 
 
-
+//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
 
 function App() {
   const [role, setRole] = useState('dev');
@@ -18,13 +18,13 @@ function App() {
           id: uuidv4()
         },
         {
-          name : "Spirit Ahri",
+          name : "Elderwood Ahri",
           role:role,
           img: images.b,
           id:2
         },
         {
-          name : "Spirit Ahri",
+          name : "K/DA Ahri",
           role:role,
           img: images.c,
           id:3
@@ -33,6 +33,19 @@ function App() {
     )
 
   const showEmployees = true;
+
+  function updateEmployee(id, newName, newRole){
+    console.log('update employee inside app.js');
+    const updatedEmployees = employees.map((employee)=> {
+      if(id === employee.id){
+        return {...employee, name: newName, role:newRole}
+      }
+      return employee;
+
+    });
+
+    setEmployees(updatedEmployees);
+  }
   
 
   return (
@@ -41,15 +54,15 @@ function App() {
       {showEmployees ?     
       <>
       <input type="text" onChange={(e) => {
-        console.log(e.target.value)
+        //console.log(e.target.value)
         setRole(e.target.value);
 
       }}/>
         <div className="flex flex-wrap justify-center">
           {employees.map((employee) => {
-            console.log(employee);
+            //console.log(employee);
             return(
-              <Employee key={uuidv4()} name={employee.name} role={employee.role} img={employee.img}/>
+              <Employee key={employee.id} id={employee.id} name={employee.name} role={employee.role} img={employee.img} updateEmployee={updateEmployee}/>
             );
           })}
         </div>

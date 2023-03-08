@@ -53,5 +53,3 @@ https://tailwindcss.com/docs/installation
 
 # part 8 ids with uuid
 uuidv4 for unique identifier
-
-# part 9 pop up stuff
